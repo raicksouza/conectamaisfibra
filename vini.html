@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Conecta+ Mais Fibra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --primary-color: #00ff41; /* Verde Neon */
+            --bg-color: #050505;
+            --card-bg: #111;
+            --text-color: #fff;
+            --text-secondary: #ccc;
+            --border-color: #333;
+            --shadow-glow: 0 0 10px rgba(0, 255, 65, 0.5);
+            --header-bg: rgba(0, 0, 0, 0.95);
+            --gradient-hero: radial-gradient(circle at center, #0a2e0a 0%, #000 90%);
+            
+            /* Cor do Parceiro VIP (Dourado) */
+            --gold-color: #FFD700;
+        }
+
+        /* TEMA CLARO */
+        body.light-mode {
+            --primary-color: #008f24;
+            --bg-color: #ffffff;
+            --card-bg: #f4f4f4;
+            --text-color: #000;
+            --text-secondary: #555;
+            --border-color: #ddd;
+            --shadow-glow: 0 5px 15px rgba(0,0,0,0.1);
+            --header-bg: rgba(255, 255, 255, 0.98);
+            --gradient-hero: radial-gradient(circle at center, #e0ffe0 0%, #fff 90%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* --- CABEÇALHO --- */
+        header {
+            background: var(--header-bg);
+            padding: 10px 5%;
+            position: fixed;
+            width: 100%;
+            height: 80px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            line-height: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo span {
+            font-size: 0.6em;
+            color: var(--text-color);
+            letter-spacing: 1px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            padding: 5px;
+        }
+
+        /* INSTAGRAM DESTACADO */
+        .btn-insta-header {
+            font-size: 1.8rem;
+            background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: 0.3s;
+            filter: drop-shadow(0 0 5px rgba(220, 39, 67, 0.5));
+            animation: pulse-insta 2s infinite;
+        }
+
+        @keyframes pulse-insta {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(220, 39, 67, 0.8)); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-login {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        
+        .btn-login:hover {
+            background: var(--primary-color);
+            color: #000;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 90vh; 
+            padding-top: 100px;
+            padding-bottom: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--gradient-hero);
+        }
+
+        .hero-umbrella {
+            width: 250px;
+            max-width: 80%;
+            margin-bottom: 20px;
+            animation: flutuando 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 65, 0.3));
+        }
+
+        @keyframes flutuando {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .hero span { color: var(--primary-color); font-family: 'Orbitron', sans-serif; }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: var(--shadow-glow);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* --- PLANOS --- */
+        .planos-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .planos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 320px;
+            padding: 30px 20px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .card.destaque {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.02);
+        }
+        
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .mega {
+            font-size: 4rem;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-color);
+            line-height: 0.9;
+        }
+
+        .mega span {
+            font-size: 1rem;
+            display: block;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .price {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            padding-left: 5px;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list i { color: var(--primary-color); margin-right: 10px; min-width: 20px; }
+
+        /* --- SPEEDTEST BOTÃO --- */
+        .speedtest-section {
+            background: var(--bg-color);
+            padding: 60px 5%;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .fast-box {
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+        }
+
+        .btn-fast-big {
+            display: inline-block;
+            background: transparent;
+            border: 3px solid var(--text-color);
+            color: var(--text-color);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        
+        .btn-fast-big:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(255,255,255,0.4);
+        }
+
+        /* --- BENEFÍCIOS --- */
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 40px 5%;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            background: var(--bg-color);
+            padding: 10px 15px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+
+        .benefit-item i { color: var(--primary-color); font-size: 1.2rem; }
+
+        /* --- PARCEIROS (TODOS VIP) --- */
+        .partners-section {
+            padding: 60px 5%;
+            text-align: center;
+            background: var(--bg-color);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .partners-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Card do Parceiro (Agora todos são VIP por padrão) */
+        .partner-card {
+            background: var(--card-bg);
+            border: 2px solid var(--gold-color); /* Borda Dourada */
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 280px;
+            transition: 0.3s;
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Efeito de Brilho Passando (Shine) */
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; } 
+            100% { left: 200%; }
+        }
+
+        .partner-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            background: #fff;
+            padding: 3px;
+            margin-bottom: 15px;
+            border: 2px solid var(--gold-color); /* Borda dourada na imagem tbm */
+            position: relative;
+            z-index: 1;
+        }
+
+        .partner-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--gold-color); /* Nome dourado */
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .partner-slogan {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .partner-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-partner-social {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-partner-social:hover { transform: scale(1.1); }
+        .insta-btn { background: #E1306C; }
+        .whats-btn { background: #25d366; }
+
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: var(--card-bg);
+            border-top: 2px solid var(--primary-color);
+            padding-bottom: 100px;
+        }
+
+        .streaming-logos {
+            margin: 25px auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .streaming-tag {
+            background: var(--bg-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- BOTÃO WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 2000;
+            border: 2px solid #fff;
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            header { padding: 10px 3%; height: auto; min-height: 70px; flex-wrap: wrap; justify-content: space-between; }
+            .header-actions { margin-top: 5px; }
+            .btn-login { font-size: 0.7rem; padding: 6px 10px; }
+            .logo { font-size: 1.1rem; }
+            .hero-umbrella { width: 180px; margin-top: 30px; }
+            .mega { font-size: 3.5rem; }
+            .btn-insta-header { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CONECTA+ <span>MAIS FIBRA</span></div>
+        <div class="header-actions">
+            <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
+            <a href="https://www.instagram.com/conectamais.fibra/" target="_blank" class="btn-insta-header">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://conecta-mais.centralassinante.com.br/#/login" target="_blank" class="btn-login">
+                <i class="fas fa-user-lock"></i> CENTRAL DO CLIENTE
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="https://uploads.onecompiler.io/448wst2kh/448wstv9w/d.png" alt="Conecta+" class="hero-umbrella">
+        <h1>VELOCIDADE<br>QUE VOCÊ <span>PRECISA.</span></h1>
+        <p>Internet Fibra Óptica 5G rápida, estável e sem travar.</p>
+        <a href="#planos" class="btn-cta">VER PLANOS</a>
+    </section>
+
+    <section class="benefits">
+        <div class="benefit-item"><i class="fas fa-wifi"></i> Wi-Fi 5G Grátis</div>
+        <div class="benefit-item"><i class="fas fa-rocket"></i> Instalação Grátis</div>
+        <div class="benefit-item"><i class="fas fa-headset"></i> Suporte 24h</div>
+    </section>
+
+    <section id="planos" class="planos-section">
+        <h2 class="section-title"><i class="fas fa-bolt"></i> PLANOS</h2>
+        <div class="planos-container">
+            <div class="card">
+                <div class="mega">120<span>MEGA</span></div>
+                <div class="price">R$ 60,00<small>/mês</small></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Wi-Fi 5G Dual Band</li>
+                    <li><i class="fas fa-check-circle"></i> Instalação Grátis</li>
+                </ul>
+                <a href="https://wa.me/557481435334?text=Quero%20120%20Mega" class="btn-login" style="display:block; text-align:center;">ASSINAR</a>
+            </div>
+
+            <div class="card">
+                <div class="mega">240<span>MEGA</span></div>
+                <div class="price">R$ 75,00<small>/mês</small></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Wi-Fi 5G Dual Band</li>
+                    <li><i class="fas fa-check-circle"></i> Ideal Home Office</li>
+                </ul>
+                <a href="https://wa.me/557481435334?text=Quero%20240%20Mega" class="btn-login" style="display:block; text-align:center;">ASSINAR</a>
+            </div>
+
+            <div class="card destaque">
+                <div class="badge"><i class="fas fa-star"></i> POPULAR</div>
+                <div class="mega" style="color:var(--primary-color);">350<span>MEGA</span></div>
+                <div class="price">R$ 85,00<small>/mês</small></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>Wi-Fi 5G Power</strong></li>
+                    <li><i class="fas fa-check-circle"></i> Desconto Ultra Gás</li>
+                </ul>
+                <a href="https://wa.me/557481435334?text=Quero%20350%20Mega" class="btn-cta" style="display:block; text-align:center;">QUERO ESSE!</a>
+            </div>
+
+            <div class="card">
+                <div class="mega">550<span>MEGA</span></div>
+                <div class="price">R$ 90,00<small>/mês</small></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Wi-Fi 6 Gamer</li>
+                    <li><i class="fas fa-check-circle"></i> Ultra Velocidade</li>
+                </ul>
+                <a href="https://wa.me/557481435334?text=Quero%20550%20Mega" class="btn-login" style="display:block; text-align:center;">ASSINAR</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="speedtest-section">
+        <h2 class="section-title"><i class="fas fa-tachometer-alt"></i> VELOCIDADE</h2>
+        <div class="fast-box">
+            <h3 style="margin-bottom:10px; font-size:1.5rem;">TESTE SUA CONEXÃO</h3>
+            <p style="color:var(--text-secondary); margin-bottom:20px;">Use o medidor oficial da Netflix.</p>
+            <a href="https://fast.com/pt/" target="_blank" class="btn-fast-big">
+                <i class="fas fa-play-circle"></i> ABRIR FAST.COM
+            </a>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <h2 class="section-title"><i class="fas fa-handshake"></i> PARCEIROS</h2>
+        <p style="color:var(--text-secondary);">Empresas que confiam e somam com a Conecta+</p>
+
+        <div class="partners-container">
+            
+            <div class="partner-card">
+                <img src="https://uploads.onecompiler.io/448wst2kh/44a8ukfem/443836933_873006301252488_215897726633896688_n.jpg" alt="Parceiro C.Conceito" class="partner-img">
+                <h3 class="partner-name">C.Conceito</h3>
+                <p class="partner-slogan">"Seu estilo, nosso conceito."</p>
+                <div class="partner-social">
+                    <a href="https://www.instagram.com/c.conceito__/" target="_blank" class="btn-partner-social insta-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/557488482321" target="_blank" class="btn-partner-social whats-btn"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="partner-card">
+                <img src="https://uploads.onecompiler.io/448wst2kh/44abcxgmw/WhatsApp%20Image%202026-01-11%20at%2020.17.44.jpeg" alt="Ultraseg" class="partner-img">
+                <h3 class="partner-name">Ultraseg</h3>
+                <p class="partner-slogan">Energia Solar</p>
+                <div class="partner-social">
+                    <a href="https://www.instagram.com/ultrasegenergiasolar/" target="_blank" class="btn-partner-social insta-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/message/VDDPJCRDC3DZB1" target="_blank" class="btn-partner-social whats-btn"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="partner-card">
+                <img src="https://uploads.onecompiler.io/448wst2kh/44abcxgmw/WhatsApp%20Image%202026-01-11%20at%2020.16.12.jpeg" alt="Metal Rocha" class="partner-img">
+                <h3 class="partner-name">Metal Rocha</h3>
+                <p class="partner-slogan">Serralheria e Estruturas</p>
+                <div class="partner-social">
+                    <a href="https://www.instagram.com/metal.rocha/" target="_blank" class="btn-partner-social insta-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/557491883404" target="_blank" class="btn-partner-social whats-btn"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="partner-card">
+                <img src="https://uploads.onecompiler.io/448wst2kh/44abcxgmw/WhatsApp%20Image%202026-01-11%20at%2020.15.11.jpeg" alt="Duim do Gás" class="partner-img">
+                <h3 class="partner-name">Ultragas</h3>
+                <p class="partner-slogan">Duim do Gás</p>
+                <div class="partner-social">
+                    <a href="https://wa.me/557491489393" target="_blank" class="btn-partner-social whats-btn" style="width: 100%; border-radius: 10px;">
+                        <i class="fab fa-whatsapp"></i> Fazer Pedido
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="margin-bottom:10px;">CONECTA+</div>
+        <a href="https://www.instagram.com/conectamais.fibra/" target="_blank" class="btn-insta-header" style="font-size:2.5rem;">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <p style="margin-top:10px; color:var(--text-secondary);">(74) 8143-5334</p>
+        
+        <div class="streaming-logos">
+            <span class="streaming-tag">YouTube</span>
+            <span class="streaming-tag">Netflix</span>
+            <span class="streaming-tag">GloboPlay</span>
+        </div>
+        <p style="margin-top:20px; font-size:0.8rem; color:var(--text-secondary)">&copy; 2024 Conecta+</p>
+    </footer>
+
+    <a href="https://wa.me/557481435334" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.querySelector('.theme-toggle i');
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
+                icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
+            }
+        }
+    </script>
+</body>
+</html>
