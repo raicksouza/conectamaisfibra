@@ -19,8 +19,6 @@
             --shadow-glow: 0 0 10px rgba(0, 255, 65, 0.5);
             --header-bg: rgba(0, 0, 0, 0.95);
             --gradient-hero: radial-gradient(circle at center, #0a2e0a 0%, #000 90%);
-            
-            /* Cor do Parceiro VIP (Dourado) */
             --gold-color: #FFD700;
         }
 
@@ -196,9 +194,96 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
+        /* --- BENEFÍCIOS --- */
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 30px 5%;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            background: var(--bg-color);
+            padding: 10px 15px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+
+        .benefit-item i { color: var(--primary-color); font-size: 1.2rem; }
+
+        /* --- ESTATÍSTICAS --- */
+        .stats-section {
+            padding: 50px 5%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stat-item { flex: 1; min-width: 200px; }
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+            display: block;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+        .stat-icon { font-size: 2rem; color: var(--text-color); margin-bottom: 10px; }
+
+        /* --- ANIMAÇÃO DE CHAMADA --- */
+        .cta-container {
+            width: 100%;
+            text-align: center;
+            background: var(--bg-color);
+            padding-top: 40px;
+        }
+        
+        .cta-animated-text {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid var(--primary-color);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+            animation: bounce-glow 2s infinite;
+        }
+        
+        .cta-animated-text i { margin: 0 10px; }
+
+        @keyframes bounce-glow {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); }
+            40% { transform: translateY(-10px); box-shadow: 0 0 30px rgba(0, 255, 65, 0.6); }
+            60% { transform: translateY(-5px); }
+        }
+
         /* --- PLANOS --- */
         .planos-section {
-            padding: 50px 20px;
+            padding: 20px 20px 60px 20px;
             text-align: center;
         }
 
@@ -285,6 +370,50 @@
 
         .features-list i { color: var(--primary-color); margin-right: 10px; min-width: 20px; }
 
+        /* --- OTIMIZADO PARA APPS (NOVO) --- */
+        .apps-section {
+            padding: 60px 5%;
+            background: var(--bg-color);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .apps-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .app-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: float-icons 3s ease-in-out infinite;
+        }
+        
+        /* Atrasa a animação de cada um pra não ficarem iguais */
+        .app-item:nth-child(2) { animation-delay: 0.5s; }
+        .app-item:nth-child(3) { animation-delay: 1s; }
+        .app-item:nth-child(4) { animation-delay: 1.5s; }
+
+        .app-icon {
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        
+        .app-item:hover .app-icon { color: var(--primary-color); text-shadow: 0 0 15px var(--primary-color); }
+        
+        .app-name { font-size: 0.9rem; color: var(--text-secondary); }
+
+        @keyframes float-icons {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         /* --- SPEEDTEST BOTÃO --- */
         .speedtest-section {
             background: var(--bg-color);
@@ -322,33 +451,66 @@
             box-shadow: 0 0 20px rgba(255,255,255,0.4);
         }
 
-        /* --- BENEFÍCIOS --- */
-        .benefits {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 40px 5%;
+        /* --- FAQ (NOVO) --- */
+        .faq-section {
+            padding: 60px 5%;
             background: var(--card-bg);
             border-top: 1px solid var(--border-color);
         }
 
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            background: var(--bg-color);
-            padding: 10px 15px;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            width: 100%;
-            max-width: 300px;
-            justify-content: center;
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .benefit-item i { color: var(--primary-color); font-size: 1.2rem; }
+        details {
+            margin-bottom: 15px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        details[open] {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0,255,65,0.1);
+        }
+
+        summary {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--text-color);
+            list-style: none; /* Remove seta padrão */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: 0.3s;
+        }
+
+        details[open] summary::after {
+            content: '-';
+            transform: rotate(180deg);
+        }
+
+        details p {
+            padding: 0 20px 20px 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+            border-top: 1px solid #222;
+            padding-top: 15px;
+        }
 
         /* --- PARCEIROS (TODOS VIP) --- */
         .partners-section {
@@ -366,10 +528,9 @@
             margin-top: 30px;
         }
 
-        /* Card do Parceiro (Agora todos são VIP por padrão) */
         .partner-card {
             background: var(--card-bg);
-            border: 2px solid var(--gold-color); /* Borda Dourada */
+            border: 2px solid var(--gold-color);
             border-radius: 15px;
             padding: 25px;
             width: 100%;
@@ -385,7 +546,6 @@
             box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
         }
 
-        /* Efeito de Brilho Passando (Shine) */
         .partner-card::before {
             content: '';
             position: absolute;
@@ -412,7 +572,7 @@
             background: #fff;
             padding: 3px;
             margin-bottom: 15px;
-            border: 2px solid var(--gold-color); /* Borda dourada na imagem tbm */
+            border: 2px solid var(--gold-color);
             position: relative;
             z-index: 1;
         }
@@ -420,7 +580,7 @@
         .partner-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
-            color: var(--gold-color); /* Nome dourado */
+            color: var(--gold-color);
             margin-bottom: 5px;
             position: relative;
             z-index: 1;
@@ -514,6 +674,10 @@
             .hero-umbrella { width: 180px; margin-top: 30px; }
             .mega { font-size: 3.5rem; }
             .btn-insta-header { font-size: 1.5rem; }
+            .stats-section { gap: 30px; }
+            .stat-number { font-size: 2.5rem; }
+            .cta-animated-text { font-size: 1rem; padding: 12px 20px; }
+            .apps-grid { gap: 20px; }
         }
     </style>
 </head>
@@ -545,8 +709,53 @@
         <div class="benefit-item"><i class="fas fa-headset"></i> Suporte 24h</div>
     </section>
 
+    <section class="stats-section">
+        <div class="stat-item">
+            <i class="fas fa-home stat-icon"></i>
+            <span class="stat-number">+500</span>
+            <span class="stat-label">Casas Atendidas</span>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-network-wired stat-icon"></i>
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Fibra Óptica</span>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-smile stat-icon"></i>
+            <span class="stat-number">5★</span>
+            <span class="stat-label">Satisfação</span>
+        </div>
+    </section>
+
+    <section class="apps-section">
+        <h2 class="section-title" style="font-size:1.5rem; margin-bottom:20px;">OTIMIZADO PARA</h2>
+        <div class="apps-grid">
+            <div class="app-item">
+                <i class="fas fa-gamepad app-icon"></i>
+                <span class="app-name">Jogos Online</span>
+            </div>
+            <div class="app-item">
+                <i class="fab fa-youtube app-icon"></i>
+                <span class="app-name">YouTube 4K</span>
+            </div>
+            <div class="app-item">
+                <i class="fas fa-film app-icon"></i>
+                <span class="app-name">Netflix / Filmes</span>
+            </div>
+            <div class="app-item">
+                <i class="fab fa-instagram app-icon"></i>
+                <span class="app-name">Redes Sociais</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-container">
+        <div class="cta-animated-text">
+            <i class="fas fa-arrow-down"></i> VENHA CONHECER NOSSOS PLANOS <i class="fas fa-arrow-down"></i>
+        </div>
+    </div>
+
     <section id="planos" class="planos-section">
-        <h2 class="section-title"><i class="fas fa-bolt"></i> PLANOS</h2>
         <div class="planos-container">
             <div class="card">
                 <div class="mega">120<span>MEGA</span></div>
@@ -599,6 +808,28 @@
             <a href="https://fast.com/pt/" target="_blank" class="btn-fast-big">
                 <i class="fas fa-play-circle"></i> ABRIR FAST.COM
             </a>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2 class="section-title"><i class="fas fa-question-circle"></i> DÚVIDAS?</h2>
+        <div class="faq-container">
+            <details>
+                <summary>Tem fidelidade?</summary>
+                <p>Nossos planos promocionais não possuem fidelidade! Você é livre para ficar com a gente pela qualidade.</p>
+            </details>
+            <details>
+                <summary>A instalação é paga?</summary>
+                <p>Não! A instalação é totalmente gratuita em todos os planos.</p>
+            </details>
+            <details>
+                <summary>A internet é 100% Fibra Óptica?</summary>
+                <p>Sim! Levamos a fibra óptica direto para dentro da sua casa, garantindo máxima estabilidade.</p>
+            </details>
+            <details>
+                <summary>Como contrato?</summary>
+                <p>Basta clicar no botão "Assinar" em qualquer plano ou chamar a gente no WhatsApp!</p>
+            </details>
         </div>
     </section>
 
